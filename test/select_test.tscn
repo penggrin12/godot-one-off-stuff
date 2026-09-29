@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://egpq2ydj7iaq"]
+
+[ext_resource type="Script" uid="uid://ceb10hl8twqpo" path="res://test/switch_scene_button.gd" id="1_y3r3y"]
+[ext_resource type="PackedScene" uid="uid://dwbt6qme8dkyk" path="res://test/audio/test_audio.tscn" id="2_rrei7"]
+[ext_resource type="PackedScene" uid="uid://bifgesh4convj" path="res://test/ray3d/test_ray3d.tscn" id="3_x40tr"]
+
+[node name="SelectTest" type="Control" unique_id=1617179587]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1393930318]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=69551752]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1613215802]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Test Scenes"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1841223823]
+layout_mode = 2
+
+[node name="AudioButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1756080884]
+layout_mode = 2
+text = "Audio"
+script = ExtResource("1_y3r3y")
+scene = ExtResource("2_rrei7")
+
+[node name="Ray3DButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=380082789]
+layout_mode = 2
+text = "Ray3D"
+script = ExtResource("1_y3r3y")
+scene = ExtResource("3_x40tr")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/AudioButton" to="CenterContainer/VBoxContainer/HBoxContainer/AudioButton" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Ray3DButton" to="CenterContainer/VBoxContainer/HBoxContainer/Ray3DButton" method="_on_pressed"]

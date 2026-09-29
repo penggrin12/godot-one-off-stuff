@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bifgesh4convj"]
+
+[ext_resource type="Script" uid="uid://t8rv46kq73tf" path="res://test/ray3d/player.gd" id="2_5w3uc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5lyy0"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3gmmu"]
+sky_material = SubResource("ProceduralSkyMaterial_5lyy0")
+
+[sub_resource type="Environment" id="Environment_5w3uc"]
+background_mode = 2
+sky = SubResource("Sky_3gmmu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5w3uc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jwvc6"]
+
+[node name="TestRay3d" type="Node3D" unique_id=1066750114]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=338356111]
+environment = SubResource("Environment_5w3uc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=17594955]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Target" type="StaticBody3D" parent="." unique_id=552132678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3714689, 2.6217315, -1.5004872)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target" unique_id=1740616416]
+shape = SubResource("BoxShape3D_5w3uc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=1101792066]
+mesh = SubResource("BoxMesh_jwvc6")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=736320468]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 3.5968146, 0)
+script = ExtResource("2_5w3uc")

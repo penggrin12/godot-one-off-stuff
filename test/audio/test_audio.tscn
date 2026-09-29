@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dwbt6qme8dkyk"]
+
+[ext_resource type="Script" uid="uid://ddjwirvef7pb4" path="res://test/audio/test_audio_button.gd" id="1_kbfli"]
+[ext_resource type="AudioStream" uid="uid://dagd2j0fylupi" path="res://test/audio/2021-12-30 Moist Alleyway - Damp Kick.wav" id="2_36l1v"]
+
+[node name="TestAudio" type="Control" unique_id=259262736]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TestAudioButton" type="Button" parent="." unique_id=1990893677]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -15.5
+offset_right = 63.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "play something"
+script = ExtResource("1_kbfli")
+audio_stream = ExtResource("2_36l1v")
+
+[connection signal="pressed" from="TestAudioButton" to="TestAudioButton" method="_on_pressed"]
